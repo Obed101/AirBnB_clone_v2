@@ -17,7 +17,7 @@ def do_pack():
                                                          date.hour,
                                                          date.minute,
                                                          date.second)
-    if !(os.path.isdir("versions")):
+    if not (os.path.isdir("versions")):
         if local("mkdir -p versions").failed:
             return None
     if local("tar -cvzf {} web_static".format(file)).failed:
