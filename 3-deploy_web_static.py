@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 
 
-env.hosts = ['34.138.119.98', '3.236.71.225']
+env.hosts = ['34.139.153.52', '3.xxx.xx.xx']
 
 
 def do_pack():

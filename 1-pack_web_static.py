@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""
-    This module creates a .tgz archive from the contents of web_static
+""" This module creates a tgz file from
+the content of a wep page
 """
 
 import os.path
@@ -9,17 +9,17 @@ from fabric.api import local
 
 
 def do_pack():
-    """Returns the archived file if possible"""
-    dt = datetime.utcnow()
-    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt.year,
-                                                         dt.month,
-                                                         dt.day,
-                                                         dt.hour,
-                                                         dt.minute,
-                                                         dt.second)
-    if os.path.isdir("versions") is False:
-        if local("mkdir -p versions").failed is True:
+    """Returns the archived file"""
+    date = datetime.utcnow()
+    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(date.year,
+                                                         date.month,
+                                                         date.day,
+                                                         date.hour,
+                                                         date.minute,
+                                                         date.second)
+    if !(os.path.isdir("versions")):
+        if local("mkdir -p versions").failed:
             return None
-    if local("tar -cvzf {} web_static".format(file)).failed is True:
+    if local("tar -cvzf {} web_static".format(file)).failed:
         return None
     return file
