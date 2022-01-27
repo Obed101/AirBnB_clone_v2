@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 """
-    This module deploys our web_static from the archived files
+This module deploys the files web_static from archived files
 """
 from fabric.api import *
 from datetime import datetime
 import os
 
 
-env.hosts = ['34.139.153.52', '3.xxx.xx.xx']
+env.hosts = ['34.139.153.52', '18.208.132.140']
 
 
 def do_pack():
     """Archives our files"""
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     file_path = "versions/web_static_{}.tgz".format(date)
-    if os.path.isdir("versions") is False:
+    if not os.path.isdir("versions"):
         local(" mkdir versions")
     local('tar -cvzf ' + file_path + ' web_static')
     if os.path.exists(file_path):
@@ -23,8 +23,8 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """Deploys out archived files to remote server and unpacks them"""
-    if os.path.exists(archive_path) is False:
+    """Deploys archive files"""
+    if not os.path.exists(archive_path):
         return False
     arch_name = archive_path.split('/')[1]
     arch_name_nex = arch_name.split(".")[0]
@@ -45,9 +45,9 @@ def do_deploy(archive_path):
 def deploy():
     """Implements deploy"""
     path = do_pack()
-    if (path is None):
+    if not path:
         return False
     deploy = do_deploy(path)
-    if (deploy is False):
+    if not deploy:
         return False
     return deploy
