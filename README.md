@@ -3,7 +3,9 @@
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
 
 ---
-Note, this repo has many contributers. check the ``AUTHORS`` file
+* Note, this repo has many contributers. check the ``AUTHORS`` file
+
+* Forked the basic foundations from [AirBnB](https://github.com/justinmajetich/AirBnB_clone) 
 
 <center><h3>Repository Contents by Project Task</h3> </center>
 
