@@ -3,6 +3,7 @@
 from models import storage
 from flask import render_template
 
+
 @app.teardown_appcontext
 def teardown():
     """ stops a mysql session"""
