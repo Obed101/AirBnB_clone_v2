@@ -2,8 +2,9 @@
 """ This is a hello world flask app"""
 from flask import Flask
 
-
 app = Flask(__name__)
+
+
 @app.route("/", strict_slashes=False)
 def hello():
     """ Printing hello HBNB to the home page"""
