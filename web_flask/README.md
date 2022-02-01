@@ -1,3 +1,3 @@
 # BEGINNING FLASK APPLICATIONS.
 
-## Here, Creating Our Web Application With Flask
+## Here, Creating The Web Application With Flask
